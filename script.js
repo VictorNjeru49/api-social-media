@@ -55,64 +55,63 @@ document.getElementById('toggleCheckbox').addEventListener('change', function() 
   
 
   const fetchData=()=> {
-    fetch('http://localhost:3000/socialMediaMetrics')
+    fetch('db.json')
    .then(res=>res.json())
    .then(data=> {
-
-    const fb =document.getElementById('facebook');
-    const fbfollow = data.facebook.followers;
+    data.forEach(value =>{
+          const fb =document.getElementById('facebook');
+    const fbfollow = value.socialMediaMetrics.facebook.followers;
     fb.innerHTML=fbfollow;
 
 
     const tw =document.getElementById('twitter');
-    const twfollow = data.twitter.followers;
+    const twfollow = value.socialMediaMetrics.twitter.followers;
     tw.innerHTML=twfollow;
 
 
     const ins =document.getElementById('instagram');
-    const insfollow = data.instagram.followers;
+    const insfollow = value.socialMediaMetrics.instagram.followers;
     ins.innerHTML=insfollow;
 
 
     const ytb =document.getElementById('youtube');
-    const ytbfollow = data.youtube.followers;
+    const ytbfollow = value.socialMediaMetrics.youtube.followers;
     ytb.innerHTML=ytbfollow;
 
     const fbviews =document.getElementById('fbviews');
-    const fbviewfollow = data.facebook.pageViews;
+    const fbviewfollow = value.socialMediaMetrics.facebook.pageViews;
     fbviews.innerHTML=fbviewfollow;
 
     const fblikes =document.getElementById('fblikes');
-    const fblikesfollow = data.facebook.likes;
+    const fblikesfollow = value.socialMediaMetrics.facebook.likes;
     fblikes.innerHTML=fblikesfollow;
-
     const instalikes =document.getElementById('instalikes');
-    const instalikesfollow = data.instagram.likes;
+    const instalikesfollow = value.socialMediaMetrics.instagram.likes;
     instalikes.innerHTML=instalikesfollow;
 
     const instaviews =document.getElementById('instaviews');
-    const instaviewsfollow = data.instagram.pageViews;
+    const instaviewsfollow = value.socialMediaMetrics.instagram.pageViews;
     instaviews.innerHTML=instaviewsfollow;
 
 
     const twsviews =document.getElementById('retweetviews');
-    const twsviewsfollow = data.twitter.pageViews;
+    const twsviewsfollow =  value.socialMediaMetrics.twitter.pageViews;
     twsviews.innerHTML=twsviewsfollow;
 
     const twslikes =document.getElementById('retweetlikes');
-    const twslikesfollow = data.twitter.likes;
+    const twslikesfollow = value.socialMediaMetrics.twitter.likes;
     twslikes.innerHTML=twslikesfollow;
 
 
     const ytblikes =document.getElementById('youlikes');
-    const ytblikesfollow = data.youtube.likes;
+    const ytblikesfollow = value.socialMediaMetrics.youtube.likes;
     ytblikes.innerHTML=ytblikesfollow;
 
     const ytbviews =document.getElementById('totalviews');
-    const ytbviewsfollow = data.youtube.pageViews;
+    const ytbviewsfollow = value.socialMediaMetrics.youtube.pageViews;
     ytbviews.innerHTML=ytbviewsfollow;
 
-  })
+   })})
 }
 fetchData();
 
